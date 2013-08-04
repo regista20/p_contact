@@ -3,11 +3,19 @@ class ContactsController < ApplicationController
     @contact = Contact.new
   end
 
-  def create
+  def confirm
     @contact = Contact.new(params[:contact])
-    if @contact.save
-      flash[:success] = "Thank you for your message!"
-      redirect_to root_path
+    if @contact.valid?
+      render :confirm
+    else
+      render :new
+    end
+  end
+
+  def done
+    if request.post? then
+      @contact = Contact.new(params[:contact])
+      @contact.save
     else
       render :new
     end

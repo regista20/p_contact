@@ -1,0 +1,36 @@
+<h1>問い合わせフォーム</h1>
+<p>よろしければ「送信」ボタンを押してください</p>
+
+<table>
+
+  <tr>
+    <th>お名前</th>
+    <td><%= @contact.name %></td>
+  </tr>
+
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @contact.email %></td>
+  </tr>
+
+  <tr>
+    <th>お問い合わせ表題</th>
+    <td><%= @contact.title %></td>
+  </tr>
+
+  <tr>
+    <th>お問い合わせ内容</th>
+    <td><%= @contact.content %></td>
+  </tr>
+
+</table>
+
+<%= form_for(@contact, url: done_path) do |f| %>
+
+<%= f.hidden_field :name %>
+<%= f.hidden_field :email %>
+<%= f.hidden_field :title %>
+<%= f.hidden_field :content %>
+<%= f.submit "送信" %>
+
+<% end %>

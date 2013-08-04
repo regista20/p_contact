@@ -1,6 +1,10 @@
 PContact::Application.routes.draw do
-  resources :contacts, only: [:new, :create]
   root to: 'contacts#new'
+
+  match '/contacts',  to: 'contacts#new'
+  match '/confirmed', to: 'contacts#confirm', via: :post
+  match '/done',      to: 'contacts#done', via: :post
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

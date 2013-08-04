@@ -1,6 +1,4 @@
-<h1>問い合わせフォーム</h1>
-
-<%= form_for(@contact, url: { action: "confirm"} ) do |f| %>
+<%= form_for(@contact) do |f| %>
   <%= render 'shared/error_messages' %>
   <div class="field">
     <%= f.label :name %><br />
