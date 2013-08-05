@@ -16,6 +16,7 @@ class ContactsController < ApplicationController
     if request.post? then
       @contact = Contact.new(params[:contact])
       @contact.save
+      ContactNotifier.sent(@contact).deliver
     else
       render :new
     end
