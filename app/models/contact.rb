@@ -9,10 +9,13 @@
 #  content    :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  gender     :string(255)
+#  age        :string(255)
+#  favorite   :string(255)
 #
 
 class Contact < ActiveRecord::Base
-  attr_accessible :content, :email, :name, :title
+  attr_accessible :content, :email, :name, :title, :gender, :age, :favorite
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

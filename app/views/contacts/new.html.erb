@@ -3,20 +3,46 @@
 <%= form_for(@contact, url: { action: "confirm"} ) do |f| %>
   <%= render 'shared/error_messages' %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name%>
+    <%= f.label :name, '名前' %><br />
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email%>
+    <%= f.label :email, 'メール' %><br />
+    <%= f.email_field :email %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title%>
+    <%= f.label :gender, '性別' %><br />
+    <%= f.radio_button :gender, '男性' %>
+    <%= f.label :gender, '男性' %>
+    <%= f.radio_button :gender, '女性' %>
+    <%= f.label :gender, '女性' %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content%>
+    <%= f.label :age, '年齢' %><br />
+    <%= f.select :age, %w[10代 20代 30代 40代 50代 60歳以上] %>
+  </div>
+  <div class="field">
+    <%= f.label :title, 'タイトル' %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content, '内容' %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :favorite, '趣味' %><br />
+    <%= f.check_box :favorite, { name: 'contact[favorite][]' }, '読書', nil %>
+    <%= f.label :favorite, '読書' %>
+    <%= f.check_box :favorite, { name: 'contact[favorite][]' }, '映画鑑賞', nil %>
+    <%= f.label :favorite, '映画鑑賞' %>
+    <%= f.check_box :favorite, { name: 'contact[favorite][]' }, 'スポーツ観戦', nil %>
+    <%= f.label :favorite, 'スポーツ観戦' %><br />
+    <%= f.check_box :favorite, { name: 'contact[favorite][]' }, 'インターネット', nil %>
+    <%= f.label :favorite, 'インターネット' %>
+    <%= f.check_box :favorite, { name: 'contact[favorite][]' }, 'ガーデニング', nil %>
+    <%= f.label :favorite, 'ガーデニング' %>
+    <%= f.check_box :favorite, { name: 'contact[favorite][]' }, 'その他', nil %>
+    <%= f.label :favorite, 'その他' %>
   </div>
   <div class="actions">
     <%= f.submit "確認" %>

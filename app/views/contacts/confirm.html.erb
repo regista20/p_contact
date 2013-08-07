@@ -14,6 +14,16 @@
   </tr>
 
   <tr>
+    <th>性別</th>
+    <td><%= @contact.gender %></td>
+  </tr>
+
+  <tr>
+    <th>年齢</th>
+    <td><%= @contact.age %></td>
+  </tr>
+
+  <tr>
     <th>お問い合わせ表題</th>
     <td><%= @contact.title %></td>
   </tr>
@@ -21,6 +31,15 @@
   <tr>
     <th>お問い合わせ内容</th>
     <td><%= @contact.content %></td>
+  </tr>
+
+  <tr>
+    <th>感心事</th>
+    <td>
+      <% @contact.favorite.each do |fav| %>
+        <%= fav %>
+      <% end %>
+    </td>
   </tr>
 
 </table>
